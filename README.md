@@ -66,13 +66,6 @@ flowchart TD
 
 ---
 
-### Usage
-
-Open `app/main.ipynb` in VS Code and execute the cells sequentially.  
-To process a custom document, place any `.txt` file in the `data/` directory and update the file path in the notebook accordingly.
-
----
-
 ## Configuration
 
 All configurable parameters are defined in [`app/config.py`](app/config.py):
@@ -90,6 +83,7 @@ All configurable parameters are defined in [`app/config.py`](app/config.py):
 
 ---
 
-## License
+## Conclusion
 
-This project is open source and available under the [MIT License](LICENSE).
+DocuMind demonstrates how a fully local RAG pipeline can be built using open-source tools. By combining SentenceTransformers for embedding, FAISS for fast vector search, and TinyLlama for text generation, it delivers grounded, context-aware answers without relying on any external API. The modular architecture makes it straightforward to swap models, adjust chunking strategies, or scale to larger document collections. Whether used for learning, prototyping, or as a foundation for production systems, DocuMind provides a clear and extensible starting point for retrieval-augmented generation.
+
