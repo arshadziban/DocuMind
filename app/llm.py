@@ -1,4 +1,4 @@
-"""HuggingFace causal LM wrapper with GPU acceleration."""
+# huggingface causal lm wrapper with gpu acceleration
 
 import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM
@@ -7,7 +7,7 @@ from config import LLM_MODEL_NAME, LLM_MAX_NEW_TOKENS, LLM_TEMPERATURE, DEVICE
 
 
 class LLM:
-    """Loads a causal language model and generates text from prompts."""
+    # loads a causal language model and generates text from prompts
 
     def __init__(self, model_name: str = LLM_MODEL_NAME):
         print(f"Loading LLM on [{DEVICE.upper()}]...")
@@ -15,7 +15,7 @@ class LLM:
         self.device = DEVICE
         self.tokenizer = AutoTokenizer.from_pretrained(model_name)
 
-        # Some models don't ship with a pad token — use eos as fallback
+        # some models don't ship with a pad token — use eos as fallback
         if self.tokenizer.pad_token is None:
             self.tokenizer.pad_token = self.tokenizer.eos_token
 
@@ -31,7 +31,7 @@ class LLM:
         print(f"LLM '{model_name}' loaded successfully.")
 
     def generate(self, prompt: str, max_tokens: int = LLM_MAX_NEW_TOKENS) -> str:
-        """Generate a response, returning only the newly generated text."""
+        # generate a response, returning only the newly generated text
         inputs = self.tokenizer(prompt, return_tensors="pt")
 
         if self.device == "cuda":
@@ -45,6 +45,6 @@ class LLM:
                 do_sample=True,
             )
 
-        # Strip the input tokens so we only return the model's answer
+        # strip the input tokens so we only return the model's answer
         new_tokens = outputs[0][inputs["input_ids"].shape[1]:]
         return self.tokenizer.decode(new_tokens, skip_special_tokens=True)

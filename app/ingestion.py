@@ -1,10 +1,10 @@
-"""Loads raw text documents from disk."""
+# loads raw text documents from disk
 
 import os
 
 
 def load_text_file(file_path: str) -> str:
-    """Read a text file and return its contents."""
+    # read a text file and return its contents
     if not os.path.exists(file_path):
         raise FileNotFoundError(f"File not found: {file_path}")
 

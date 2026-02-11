@@ -1,21 +1,21 @@
-"""All project-level settings live here — models, devices, hyperparams."""
+# all project-level settings — models, devices, hyperparams
 
 import torch
 
-# Pick GPU if available, otherwise fall back to CPU
+# pick gpu if available, otherwise fall back to cpu
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 
-# Embedding model (runs via SentenceTransformers)
+# embedding model (runs via sentencetransformers)
 EMBEDDING_MODEL_NAME = "all-MiniLM-L6-v2"
 
-# LLM for answer generation
+# llm for answer generation
 LLM_MODEL_NAME = "TinyLlama/TinyLlama-1.1B-Chat-v1.0"
 LLM_MAX_NEW_TOKENS = 200
 LLM_TEMPERATURE = 0.7
 
-# Chunking settings
+# chunking settings
 CHUNK_SIZE = 500
 CHUNK_OVERLAP = 50
 
-# How many chunks to retrieve per query
+# how many chunks to retrieve per query
 TOP_K = 3

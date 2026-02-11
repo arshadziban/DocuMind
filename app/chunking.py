@@ -1,4 +1,4 @@
-"""Splits raw text into overlapping chunks for embedding."""
+# splits raw text into overlapping chunks for embedding
 
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
@@ -10,7 +10,7 @@ def split_document(
     chunk_size: int = CHUNK_SIZE,
     chunk_overlap: int = CHUNK_OVERLAP,
 ) -> list[str]:
-    """Break a document into overlapping chunks using recursive splitting."""
+    # break a document into overlapping chunks using recursive splitting
     if not isinstance(document, str):
         raise ValueError("Input document must be a string.")
 

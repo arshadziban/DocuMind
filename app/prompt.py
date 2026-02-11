@@ -1,8 +1,8 @@
-"""Builds the RAG prompt from retrieved context and the user's question."""
+# builds the rag prompt from retrieved context and the user's question
 
 
 def build_prompt(query: str, context_chunks: list[str]) -> str:
-    """Build a grounded RAG prompt using retrieved context chunks."""
+    # build a grounded rag prompt using retrieved context chunks
     if not context_chunks:
         context = "No relevant context found."
     else:

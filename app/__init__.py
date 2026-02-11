@@ -1,1 +1,1 @@
-"""DocuMind — a simple RAG pipeline for document Q&A."""
+# documind — a simple rag pipeline for document q&a
